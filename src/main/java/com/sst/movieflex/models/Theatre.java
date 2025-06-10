@@ -1,9 +1,6 @@
 package com.sst.movieflex.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "theatres")
 public class Theatre extends BaseModel{
 
     private String name;
@@ -19,6 +16,7 @@ public class Theatre extends BaseModel{
     private String address;
 
     @OneToMany
+    @JoinColumn(name = "theatre_id")
     private List<Screen> screens;
 
 }

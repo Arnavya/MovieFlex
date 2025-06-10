@@ -9,13 +9,13 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "cities")
 public class City extends BaseModel{
 
     private String name;
 
     @OneToMany
-    private List<Threatre> theatres;
+    private List<Theatre> theatres;
 }
 
 /*
