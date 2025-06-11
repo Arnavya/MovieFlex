@@ -3,6 +3,8 @@ package com.sst.movieflex.controllers;
 import com.sst.movieflex.dtos.CreateBookingRequestDto;
 import com.sst.movieflex.dtos.CreateBookingResponseDto;
 import com.sst.movieflex.dtos.ResponseStatus;
+import com.sst.movieflex.exceptions.ShowSeatNotAvailableException;
+import com.sst.movieflex.exceptions.UserNotFoundException;
 import com.sst.movieflex.models.Booking;
 import com.sst.movieflex.models.ShowSeat;
 import com.sst.movieflex.models.User;
@@ -24,7 +26,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
     @PostMapping
-    public CreateBookingResponseDto createBooking(@RequestBody CreateBookingRequestDto requestDto) {
+    public CreateBookingResponseDto createBooking(@RequestBody CreateBookingRequestDto requestDto) throws UserNotFoundException, ShowSeatNotAvailableException {
         CreateBookingResponseDto responseDto = new CreateBookingResponseDto();
 
         Booking booking = null;
